@@ -1,0 +1,55 @@
+Postorder traversal Iterative Using Stack : Binary Tree Postorder Traversal
+                    Time complexity: O(n): As there is n number of nodes in the tree, and we are traversing every single node of tree. 
+                    Space complexity: o(n): As there is n number of nodes in the tree, and we are recording every data in account. 
+public List<Integer> postorderTraversal(TreeNode root) {
+        LinkedList<Integer> res = new LinkedList<>();
+        if (root == null) return res;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            root = stack.pop();
+            res.addFirst(root.val);
+            if (root.left  != null) stack.push(root.left );
+            if (root.right != null) stack.push(root.right);
+        }
+        return res;
+}
+
+
+Preorder traversal Iterative Using Stack: Binary Tree Preorder Traversal
+                     Time complexity: O(n): As there is n number of nodes in the tree, and we are traversing every single node of tree. 
+                     Space complexity: o(n): As there is n number of nodes in the tree, and we are recording every data in account.
+
+public List<Integer> preorderTraversal(TreeNode root) {
+    List<Integer> list = new ArrayList<>();
+    if(root == null) return list;
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root);
+    while(!stack.empty()){
+        root = stack.pop();
+        list.add(root.val);
+        if(root.right != null) stack.push(root.right);
+        if(root.left != null) stack.push(root.left);
+    }
+    return list;
+}
+
+
+Inorder traversal Iterative Using Stack: Binary Tree Inorder Traversal
+                    Time complexity: O(n): As there is n number of nodes in the tree, and we are traversing every single node of tree. 
+                    Space complexity: o(n): As there is n number of nodes in the tree, and we are recording every data in account.
+public List<Integer> inorderTraversal(TreeNode root) {
+    List<Integer> list = new ArrayList<>();
+    if(root == null) return list;
+    Stack<TreeNode> stack = new Stack<>();
+    while(root != null || !stack.empty()){
+        while(root != null){
+            stack.push(root);
+            root = root. left;
+        }
+        root = stack.pop();
+        list.add(root.val);
+        root = root.right;
+    }
+    return list;
+}
