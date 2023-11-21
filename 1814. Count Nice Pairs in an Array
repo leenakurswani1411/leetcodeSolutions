@@ -1,8 +1,8 @@
 Intuition
-Here we need to put num - reverse(num) into somewhere where we can check if pairs are equals or not so we can store it in Map.
+Here we need to put num - reverse(num) somewhere where we can check if pairs are equals or not so we can store it in Map.
 
 Approach
-We will first store num - reverse(num) and their count into map. If first time we will do onli insertion and then second time if there is key which is repeating so we have found pairs we will add it in the answer. We will take module of answer as mentioned as it can go out of the integer. and thats it.
+We will first store num - reverse(num) and their count into the map. If the first time we will do only insertion and then the second time if there is a key that is repeating so we have found pairs we will add it in the answer. We will take the module of answer as mentioned as it can go out of the integer. and that's it.
 
 Complexity
 Time complexity:
