@@ -1,0 +1,37 @@
+Intuition
+Here we need to put num - reverse(num) into somewhere where we can check if pairs are equals or not so we can store it in Map.
+
+Approach
+We will first store num - reverse(num) and their count into map. If first time we will do onli insertion and then second time if there is key which is repeating so we have found pairs we will add it in the answer. We will take module of answer as mentioned as it can go out of the integer. and thats it.
+
+Complexity
+Time complexity:
+o(n) There is one for-loop.
+
+Space complexity:
+o(n) as there is one map created to store the count.
+
+Code
+class Solution {
+    public int riv(int n){
+        int ans = 0;
+        while(n > 0){
+            ans = ans * 10 + n % 10;
+            n = n/10;
+        }
+        return ans;
+    }
+
+    public int countNicePairs(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int ans = 0;
+        for(int i : nums){
+            int rev = riv(i);
+            int a = map.getOrDefault(i-rev,0);
+            ans = ( ans + a) % 1000000007;//
+            map.put(i - rev, a + 1); //18, 1 // 0, 1 // 0, 2 // 18
+        }
+
+        return ans;
+    }
+}
